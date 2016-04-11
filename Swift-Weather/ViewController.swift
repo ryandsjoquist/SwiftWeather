@@ -93,9 +93,6 @@ class ViewController: UIViewController,NSURLSessionDelegate {
         feelsLikeLabel.text = "Feels Like \(currentObservation["WindChill"]!)º"
         weatherLabel.text = currentObservation["Weather"]
     }
-    
-    
-    
 }
 
 

@@ -119,12 +119,8 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         })
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return forecastData.count
-    }
-    
    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 1
+        return forecastData.count
 
     }
 }
