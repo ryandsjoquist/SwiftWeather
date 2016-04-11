@@ -1,4 +1,5 @@
 # Swift-Weather
+The Recieved Message ->
 
 This is a simple app that retrieves the current conditions and forecast for
 Columbus, OH from the National Weather Service at weather.gov. We'd like you to
@@ -21,3 +22,16 @@ with the current weather.
 
 5. Add something else to the app that you feel makes it better. It can be
 anything. Use your imagination!
+
+
+My Fixes ->
+
+1. App transport security doesn't allow unsigned HTTP requests. However, I allowed forecast.weather.gov
+because of it's trustworthiness, and the fact that it is a government site. I believe in proper data security, 
+and won't allow arbitrary loads.
+
+2. I put the UI update to the main_queue.
+
+3. I added the image for the current weather, as well as for the five day forcast.
+
+4. 

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,13 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hUx-Mx-Nj1">
-                                <rect key="frame" x="122" y="70" width="130" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="4X7-Na-d6E"/>
-                                    <constraint firstAttribute="height" constant="130" id="gyg-3e-8GN"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="74º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQl-S9-hae">
                                 <rect key="frame" x="130" y="290" width="114" height="86"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
@@ -69,6 +64,13 @@
                                     <segue destination="yNF-vP-Qr4" kind="show" id="LTE-xW-Xik"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hUx-Mx-Nj1">
+                                <rect key="frame" x="122" y="114" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="4X7-Na-d6E"/>
+                                    <constraint firstAttribute="height" constant="130" id="gyg-3e-8GN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -120,38 +122,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ksh-dl-Jpf">
-                            <size key="itemSize" width="291" height="154"/>
+                            <size key="itemSize" width="314" height="265"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="vcN-Ql-Mga" customClass="WeatherForecastCollectionCell" customModule="Swift_Weather" customModuleProvider="target">
-                                <rect key="frame" x="42" y="64" width="291" height="154"/>
+                                <rect key="frame" x="30.5" y="64" width="314" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="291" height="154"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="314" height="265"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTx-Bw-xyC">
-                                            <rect key="frame" x="19" y="21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTx-Bw-xyC">
+                                            <rect key="frame" x="8" y="8" width="298" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="29" id="m3T-K6-YgV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-hT-NWj">
-                                            <rect key="frame" x="19" y="91" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-KL-Ok0">
-                                            <rect key="frame" x="161" y="13" width="122" height="128"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-KL-Ok0">
+                                            <rect key="frame" x="8" y="129" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="128" id="cej-Eu-abA"/>
+                                                <constraint firstAttribute="width" constant="128" id="drl-bt-SFv"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="forcasted Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVi-YC-zTW">
+                                            <rect key="frame" x="67.5" y="45" width="179" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="iVi-YC-zTW" secondAttribute="height" multiplier="1:1" id="3Io-mK-BDT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="3Io-mK-BDT"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Weather Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U32-F1-aZM">
+                                            <rect key="frame" x="144" y="130" width="170" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="percentLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-hT-NWj">
+                                            <rect key="frame" x="144" y="236" width="149" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.7725490196" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sTx-Bw-xyC" firstAttribute="leading" secondItem="vcN-Ql-Mga" secondAttribute="leadingMargin" id="2mH-Fj-vsd"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Icd-hT-NWj" secondAttribute="trailing" constant="13" id="6IK-nN-EWc"/>
+                                    <constraint firstItem="ahE-KL-Ok0" firstAttribute="bottom" secondItem="vcN-Ql-Mga" secondAttribute="bottomMargin" id="7ho-b9-2Ka"/>
+                                    <constraint firstItem="U32-F1-aZM" firstAttribute="leading" secondItem="ahE-KL-Ok0" secondAttribute="trailing" constant="8" id="Feq-XU-Liy"/>
+                                    <constraint firstAttribute="trailing" secondItem="U32-F1-aZM" secondAttribute="trailing" id="T7y-qd-IGc"/>
+                                    <constraint firstItem="sTx-Bw-xyC" firstAttribute="trailing" secondItem="vcN-Ql-Mga" secondAttribute="trailingMargin" id="WSV-pW-g7a"/>
+                                    <constraint firstItem="U32-F1-aZM" firstAttribute="top" secondItem="iVi-YC-zTW" secondAttribute="bottom" constant="9" id="dDW-D3-rHc"/>
+                                    <constraint firstItem="ahE-KL-Ok0" firstAttribute="bottom" secondItem="vcN-Ql-Mga" secondAttribute="bottomMargin" id="egX-QK-Qrj"/>
+                                    <constraint firstItem="iVi-YC-zTW" firstAttribute="centerX" secondItem="vcN-Ql-Mga" secondAttribute="centerX" id="gH5-fA-JCt"/>
+                                    <constraint firstItem="sTx-Bw-xyC" firstAttribute="top" secondItem="vcN-Ql-Mga" secondAttribute="topMargin" id="gnl-3V-7yF"/>
+                                    <constraint firstItem="ahE-KL-Ok0" firstAttribute="leading" secondItem="vcN-Ql-Mga" secondAttribute="leadingMargin" id="lQ8-sl-Wyr"/>
+                                    <constraint firstItem="Icd-hT-NWj" firstAttribute="leading" secondItem="ahE-KL-Ok0" secondAttribute="trailing" constant="8" id="oq5-8V-I17"/>
+                                    <constraint firstItem="iVi-YC-zTW" firstAttribute="top" secondItem="sTx-Bw-xyC" secondAttribute="bottom" constant="8" id="ryD-P1-TwT"/>
+                                    <constraint firstItem="ahE-KL-Ok0" firstAttribute="top" secondItem="iVi-YC-zTW" secondAttribute="bottom" constant="8" id="tKB-o5-ND3"/>
+                                    <constraint firstItem="Icd-hT-NWj" firstAttribute="bottom" secondItem="vcN-Ql-Mga" secondAttribute="bottomMargin" id="tTD-ca-Ysr"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="forecastTempLabel" destination="iVi-YC-zTW" id="nNr-CI-eqE"/>
+                                    <outlet property="precipitationLabel" destination="Icd-hT-NWj" id="ABi-hN-YvF"/>
+                                    <outlet property="timeLabel" destination="sTx-Bw-xyC" id="ySn-BK-iMY"/>
+                                    <outlet property="weatherImageView" destination="ahE-KL-Ok0" id="FJP-pi-EKt"/>
+                                    <outlet property="weatherLabel" destination="U32-F1-aZM" id="STR-CB-m4N"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

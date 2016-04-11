@@ -18,59 +18,45 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         var temperature:String
         var pop:String?
         var weather:String
-        init(temperature:String, startPeriodName:String, pop:String?, weather:String)
+        var weatherImageString:String
+        
+        init(temperature:String, startPeriodName:String, pop:String?, weather:String, weatherImageString:String)
         {
             self.startPeriodName = startPeriodName
             self.temperature = temperature
             self.pop = pop
             self.weather = weather
+            self.weatherImageString = weatherImageString
         }
     }
     
     let jsonURL = NSURL(string:"http://forecast.weather.gov/MapClick.php?lat=40.1024362&lon=-83.1483597&FcstType=json")!
-    var data:Array< Forecast > = Array < Forecast >()
+    var forecastData:Array< Forecast > = Array < Forecast >()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        //start HTTP Call
-        
         httpGet(NSMutableURLRequest(URL: jsonURL))
-        
-        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top:1,left:10,bottom:10,right:10)
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 10
-        
-        collectionView?.collectionViewLayout = layout
-        
-        //json loading goes here
-        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView?.reloadData()
-//        print(numberOfItemsInSection(1))
+        do_refresh()
+
     }
     
     override func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath)->UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WeatherForecastCollectionCell
+    
+        for forcast in forecastData{
+            cell.setUpCell(forcast.temperature, time:forcast.startPeriodName, precipitationPercentage: forcast.pop, weather: forcast.weather, weatherImageString: forcast.weatherImageString)
+        }
         
-        
-//        cell.startPeriodTimeLabel.text
-//        cell.forecastTempLabel.text
-        
-
         return cell
     }
-    
-    
     
     func parseJSON(json:[String:AnyObject]){
         guard let timeData = json["time"] as? [String: AnyObject] else {
@@ -91,14 +77,22 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         guard let forecastedWeather = weatherData["weather"] as? [String] else {
             return
         }
-        data = []
+        guard let forecastedWeatherImage = weatherData["iconLink"] as? [String] else {
+            return
+        }
+        forecastData = []
         for index in 0..<forecastedWeather.count{
            let forecast = Forecast(temperature:forecastedTemps[index],
                                                 startPeriodName: forecastedTime[index],
                                                 pop: forecastedPercentages[index] as? String,
-                                                weather: forecastedWeather[index])
-            data.append(forecast)
+                                                weather: forecastedWeather[index],
+                                                weatherImageString: forecastedWeatherImage[index]
+            )
+            forecastData.append(forecast)
         }
+        
+        print(forecastData)
+    
     }
     
     func httpGet(request: NSMutableURLRequest!) {
@@ -115,7 +109,7 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
                 
                 let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 self.parseJSON(json as! [String:AnyObject])
-                self.collectionView?.reloadData()
+                self.do_refresh()
             }
         }
         task.resume()
@@ -136,7 +130,7 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
     }
     
    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return data.count
+        return forecastData.count
 
     }
     
