@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Current Weather-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Swift_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,8 +174,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Current Weather" image="Weather" selectedImage="Weather" id="2Iz-k8-Jb7"/>
-                    <navigationItem key="navigationItem" id="gUU-8f-TRn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="currentDateLabel" destination="uTa-os-6Lg" id="dRX-Si-B2V"/>
@@ -192,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="63.5" y="1102.5"/>
         </scene>
-        <!--5 Day Forecast-->
+        <!--Weather Forecast Collection View Controller-->
         <scene sceneID="AqT-Q5-gTv">
             <objects>
                 <collectionViewController id="yNF-vP-Qr4" customClass="WeatherForecastCollectionViewController" customModule="Swift_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -342,7 +340,6 @@
                             <outlet property="delegate" destination="yNF-vP-Qr4" id="jVj-mt-cnh"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="5 Day Forecast" image="Sun Image" id="9fm-xP-MeK"/>
                     <connections>
                         <outlet property="collectionView" destination="S04-UD-mzw" id="lo0-ad-ctx"/>
                     </connections>
@@ -352,8 +349,4 @@
             <point key="canvasLocation" x="925.5" y="461.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Sun Image" width="33" height="33"/>
-        <image name="Weather" width="35" height="35"/>
-    </resources>
 </document>
