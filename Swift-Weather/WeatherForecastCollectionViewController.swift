@@ -10,8 +10,6 @@ import UIKit
 
 class WeatherForecastCollectionViewController: UICollectionViewController{
     
-    
-    
     struct Forecast
     {
         var startPeriodName:String
@@ -31,30 +29,22 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
     let jsonURL = NSURL(string:"http://forecast.weather.gov/MapClick.php?lat=40.1024362&lon=-83.1483597&FcstType=json")!
     var forecastData:Array< Forecast > = Array < Forecast >()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         httpGet(NSMutableURLRequest(URL: jsonURL))
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         do_refresh()
 
     }
     
     override func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath)->UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WeatherForecastCollectionCell
-        
         if let forecast = forecastData[indexPath.row] as? Forecast{
             cell.setUpCell(forecast.temperature, time: forecast.startPeriodName, weather: forecast.weather, weatherImageString: forecast.weatherImageString)
-            
         }
-        
-        
         return cell
     }
     

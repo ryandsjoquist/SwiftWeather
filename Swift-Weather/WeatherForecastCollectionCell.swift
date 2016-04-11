@@ -22,12 +22,9 @@ class WeatherForecastCollectionCell: UICollectionViewCell {
         forecastTempLabel.text = temperature
         weatherLabel.text = weather
         loadImage(weatherImageString)
-        
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 3
         self.layer.borderColor = UIColor.blackColor().CGColor
-        
-    
         }
     
     func loadImage(imageName:String){
@@ -51,9 +48,5 @@ class WeatherForecastCollectionCell: UICollectionViewCell {
             completion(data: data, response: response, error: error)
             }.resume()
     }
-    
-    
-
-
-    }
+}
 
