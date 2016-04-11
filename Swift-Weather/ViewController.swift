@@ -30,17 +30,14 @@ class ViewController: UIViewController,NSURLSessionDelegate {
                 self.httpGet(NSMutableURLRequest(URL: self.jsonURL))
             }
         }
-        
         imageView.contentMode = .ScaleAspectFit
-        
-        
     }
     
     func httpGet(request: NSMutableURLRequest!) {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        
-        let session = NSURLSession(configuration: configuration, delegate:WeatherDelegate(), delegateQueue:NSOperationQueue.mainQueue())
-        
+        let session = NSURLSession(configuration: configuration,
+                                   delegate:WeatherDelegate(),
+                                   delegateQueue:NSOperationQueue.mainQueue())
         let task = session.dataTaskWithRequest(request){
             (data, response, error) -> Void in
             if error == nil {
@@ -82,7 +79,6 @@ class ViewController: UIViewController,NSURLSessionDelegate {
             print("fail at stage 2")
             self.imageView.image = nil
         }
-        
         temperatureLabel.text = "\(currentObservation["Temp"]!)º"
         feelsLikeLabel.text = "Feels Like \(currentObservation["WindChill"]!)º"
         weatherLabel.text = currentObservation["Weather"]

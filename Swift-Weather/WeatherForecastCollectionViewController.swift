@@ -16,15 +16,13 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
     {
         var startPeriodName:String
         var temperature:String
-        var pop:String?
         var weather:String
         var weatherImageString:String
         
-        init(temperature:String, startPeriodName:String, pop:String?, weather:String, weatherImageString:String)
+        init(temperature:String, startPeriodName:String, weather:String, weatherImageString:String)
         {
             self.startPeriodName = startPeriodName
             self.temperature = temperature
-            self.pop = pop
             self.weather = weather
             self.weatherImageString = weatherImageString
         }
@@ -50,10 +48,12 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
     
     override func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath)->UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! WeatherForecastCollectionCell
-    
-        for forcast in forecastData{
-            cell.setUpCell(forcast.temperature, time:forcast.startPeriodName, precipitationPercentage: forcast.pop, weather: forcast.weather, weatherImageString: forcast.weatherImageString)
+        
+        if let forecast = forecastData[indexPath.row] as? Forecast{
+            cell.setUpCell(forecast.temperature, time: forecast.startPeriodName, weather: forecast.weather, weatherImageString: forecast.weatherImageString)
+            
         }
+        
         
         return cell
     }
@@ -71,9 +71,6 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         guard let forecastedTemps = weatherData["temperature"] as? [String] else {
             return
         }
-        guard let forecastedPercentages = weatherData["pop"] as? NSArray else {
-            return
-        }
         guard let forecastedWeather = weatherData["weather"] as? [String] else {
             return
         }
@@ -84,15 +81,12 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         for index in 0..<forecastedWeather.count{
            let forecast = Forecast(temperature:forecastedTemps[index],
                                                 startPeriodName: forecastedTime[index],
-                                                pop: forecastedPercentages[index] as? String,
                                                 weather: forecastedWeather[index],
                                                 weatherImageString: forecastedWeatherImage[index]
             )
             forecastData.append(forecast)
         }
-        
-        print(forecastData)
-    
+        print(forecastData[0])
     }
     
     func httpGet(request: NSMutableURLRequest!) {
@@ -101,12 +95,9 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         let session = NSURLSession(configuration: configuration,
                                    delegate:WeatherDelegate(),
                                    delegateQueue:NSOperationQueue.mainQueue())
-        
         let task = session.dataTaskWithRequest(request){
             (data, response, error) -> Void in
             if error == nil {
-//                set and load data, and reloadData
-                
                 let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 self.parseJSON(json as! [String:AnyObject])
                 self.do_refresh()
@@ -133,9 +124,4 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
         return forecastData.count
 
     }
-    
-
-    
-    
-    
 }

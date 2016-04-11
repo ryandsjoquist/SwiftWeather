@@ -16,11 +16,10 @@ class WeatherForecastCollectionCell: UICollectionViewCell {
     @IBOutlet var weatherLabel:UILabel!
     @IBOutlet var weatherImageView:UIImageView!
     
-    func setUpCell(temperature:String,time:String,precipitationPercentage:String?, weather:String, weatherImageString:String){
+    func setUpCell(temperature:String,time:String,weather:String, weatherImageString:String){
         
         timeLabel.text = time
         forecastTempLabel.text = temperature
-        precipitationLabel.text = precipitationPercentage
         weatherLabel.text = weather
         loadImage(weatherImageString)
         
