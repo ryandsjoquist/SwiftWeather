@@ -13,7 +13,11 @@ class ViewController: UIViewController,NSURLSessionDelegate {
     
     let jsonURL = NSURL(string:"http://forecast.weather.gov/MapClick.php?lat=40.1024362&lon=-83.1483597&FcstType=json")!
     let baseImageURL = NSURL(string:"http://forecast.weather.gov/newimages/medium/")!
-
+    
+    @IBOutlet var visibilityLabel:UILabel!
+    @IBOutlet var windsLabel:UILabel!
+    @IBOutlet var currentDateLabel:UILabel!
+    @IBOutlet var locationLabel:UILabel!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var feelsLikeLabel: UILabel!
     @IBOutlet var weatherLabel: UILabel!
@@ -70,6 +74,7 @@ class ViewController: UIViewController,NSURLSessionDelegate {
     }
     
     func updateCurrentWeatherConditions(json:[String:AnyObject]){
+        
         guard let currentObservation = json["currentobservation"] as? [String: String] else { return }
         
         if let imageName = currentObservation["Weatherimage"]{
@@ -79,6 +84,11 @@ class ViewController: UIViewController,NSURLSessionDelegate {
             print("fail at stage 2")
             self.imageView.image = nil
         }
+        
+        visibilityLabel.text = "\(currentObservation["Visibility"]!) Miles"
+        windsLabel.text = "\(currentObservation["Winds"]!) MPH"
+        locationLabel.text = currentObservation["name"]
+        currentDateLabel.text = currentObservation["Date"]
         temperatureLabel.text = "\(currentObservation["Temp"]!)º"
         feelsLikeLabel.text = "Feels Like \(currentObservation["WindChill"]!)º"
         weatherLabel.text = currentObservation["Weather"]
