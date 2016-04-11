@@ -24,7 +24,8 @@ class WeatherForecastCollectionCell: UICollectionViewCell {
         loadImage(weatherImageString)
         
         self.layer.cornerRadius = 5
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.blackColor().CGColor
         
     
         }

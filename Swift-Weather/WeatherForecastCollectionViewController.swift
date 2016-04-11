@@ -86,7 +86,6 @@ class WeatherForecastCollectionViewController: UICollectionViewController{
             )
             forecastData.append(forecast)
         }
-        print(forecastData[0])
     }
     
     func httpGet(request: NSMutableURLRequest!) {

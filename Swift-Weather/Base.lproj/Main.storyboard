@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="42" y="249"/>
         </scene>
-        <!--Item-->
+        <!--5 Day Forecast-->
         <scene sceneID="AqT-Q5-gTv">
             <objects>
                 <collectionViewController id="yNF-vP-Qr4" customClass="WeatherForecastCollectionViewController" customModule="Swift_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="265"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Labelgcycyc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTx-Bw-xyC">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Labels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTx-Bw-xyC">
                                             <rect key="frame" x="0.0" y="8" width="150" height="45.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="29" id="m3T-K6-YgV"/>
@@ -139,7 +139,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-KL-Ok0">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-KL-Ok0">
                                             <rect key="frame" x="16" y="155" width="118" height="101.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ahE-KL-Ok0" secondAttribute="height" multiplier="1:1" id="Cu1-By-6un"/>
@@ -154,7 +154,7 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Weather Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U32-F1-aZM">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Weather Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U32-F1-aZM">
                                             <rect key="frame" x="0.0" y="98" width="150" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="49" id="Nhv-8L-JLx"/>
@@ -163,12 +163,12 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="forcasted Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVi-YC-zTW">
-                                            <rect key="frame" x="0.0" y="61.5" width="150" height="31.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="forcasted Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVi-YC-zTW">
+                                            <rect key="frame" x="0.0" y="61" width="150" height="31.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="iVi-YC-zTW" secondAttribute="height" multiplier="1:1" id="3Io-mK-BDT"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -180,7 +180,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.7725490196" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.91522687673568726" green="0.89174985885620117" blue="0.43227541446685791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="sTx-Bw-xyC" secondAttribute="trailing" id="0lC-LM-rEf"/>
                                     <constraint firstItem="sTx-Bw-xyC" firstAttribute="leading" secondItem="vcN-Ql-Mga" secondAttribute="leadingMargin" id="2mH-Fj-vsd"/>
@@ -250,7 +250,7 @@
                             <outlet property="delegate" destination="yNF-vP-Qr4" id="jVj-mt-cnh"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" image="Sun Image" id="9fm-xP-MeK"/>
+                    <tabBarItem key="tabBarItem" title="5 Day Forecast" image="Sun Image" id="9fm-xP-MeK"/>
                     <connections>
                         <outlet property="collectionView" destination="S04-UD-mzw" id="lo0-ad-ctx"/>
                     </connections>
@@ -261,7 +261,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sun Image" width="150" height="150"/>
-        <image name="Weather" width="150" height="150"/>
+        <image name="Sun Image" width="33" height="33"/>
+        <image name="Weather" width="35" height="35"/>
     </resources>
 </document>

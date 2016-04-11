@@ -30,8 +30,11 @@ My Fixes ->
 because of it's trustworthiness, and the fact that it is a government site. I believe in proper data security, 
 and won't allow arbitrary loads.
 
-2. I put the UI update to the main_queue.
+2. I put the UI update to the main_queue, for both the current weather and the 5 day forecast.
 
-3. I added the image for the current weather, as well as for the five day forcast.
+3. I added the image for the current weather, as well as for the five day forecast.
 
-4. 
+4. Added a tab view controller for the two different views, the 5 day forecast is in the UICollectionView.
+
+5. Added some small icons for easy identification, changed the look of the app to be more appealing to the eye.
+Added images for the 5 day forcast, which add a more colorful element to understanding what's coming up.
