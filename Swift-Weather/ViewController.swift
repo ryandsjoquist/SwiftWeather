@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController,NSURLSessionDelegate {
 
-    
+class ViewController: UIViewController,NSURLSessionDelegate {
     
     let jsonURL = NSURL(string:"http://forecast.weather.gov/MapClick.php?lat=40.1024362&lon=-83.1483597&FcstType=json")!
     let baseImageURL = NSURL(string:"http://forecast.weather.gov/newimages/medium/")!
@@ -19,6 +18,7 @@ class ViewController: UIViewController,NSURLSessionDelegate {
     @IBOutlet var feelsLikeLabel: UILabel!
     @IBOutlet var weatherLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +87,9 @@ class ViewController: UIViewController,NSURLSessionDelegate {
         feelsLikeLabel.text = "Feels Like \(currentObservation["WindChill"]!)º"
         weatherLabel.text = currentObservation["Weather"]
     }
-
+    
+    
+    
 }
 
 

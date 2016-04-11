@@ -10,11 +10,8 @@ import UIKit
 
 class WeatherForecastCollectionCell: UICollectionViewCell {
     
-    @IBOutlet var dayNameLabel:UILabel!
-    @IBOutlet var nightNameLabel:UILabel!
-    @IBOutlet var dayTempLabel:UILabel!
-    @IBOutlet var nightTempLabel:UILabel!
-    
+    @IBOutlet var startPeriodTimeLabel:UILabel!
+    @IBOutlet var forecastTempLabel:UILabel!
     
     
     
